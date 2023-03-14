@@ -43,9 +43,6 @@ export const MultipleCustomHooks = () => {
             {loading && <Loading loading={loading} />}
 
             {error && <Error error={error}/>}
-
-
-
         </>
     )
 }
