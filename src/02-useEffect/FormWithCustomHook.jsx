@@ -2,7 +2,7 @@ import { useForm } from '../hooks/useForm'
 
 export const FormWithCustomHook = () => {
 
-    const { formState, handleInputChange, username, email, password } = useForm({
+    const { formState, handleInputChange, onResetForm, username, email, password } = useForm({
         username: '',
         email: '',
         password: ''
@@ -45,6 +45,11 @@ export const FormWithCustomHook = () => {
                     value={password}
                     onChange={handleInputChange}
                 />
+
+                <button
+                    onClick={onResetForm}
+                    type='submit'
+                    className='btn btn-primary mt-3'>Reset</button>
             </form>
 
         </>
