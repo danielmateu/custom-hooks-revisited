@@ -32,17 +32,17 @@ export const TOdoApp = () => {
     }
 
     // Delete todo
-    const handleDeleteTodo = (todoId) => {
+    const handleDeleteTodo = (id) => {
         dispatch({
             type: 'delete',
-            payload: todoId
+            payload: id
         })
     }
 
     return (
         <>
             <div className="d-flex">
-                <h1>TodoApp 10, <small>pendientes: 2</small></h1>
+                <h1>TodoApp {todos.length}, <small>pendientes: {todos.filter(todo => !todo.done).length}</small></h1>
             </div>
             <hr />
             <div className="row">
@@ -50,14 +50,14 @@ export const TOdoApp = () => {
                     {/* TodoList */}
                     <TodoList
                         todos={todos}
-                        // handleDeleteTodo={handleDeleteTodo}
+                        handleDeleteTodo={handleDeleteTodo}
                     />
 
                 </div>
                 <div className="col-5">
                     <h4>Agregar TODO</h4>
-                    <TodoAdd 
-                        handleNewTodo={handleNewTodo} 
+                    <TodoAdd
+                        handleNewTodo={handleNewTodo}
 
                     />
                 </div>

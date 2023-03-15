@@ -1,7 +1,7 @@
 
 import { TOdoItem } from './TOdoItem'
 
-export const TodoList = ({ todos}) => {
+export const TodoList = ({ todos, handleDeleteTodo}) => {
     // console.log(todos);
     return (
         <ul className='list-group'>
@@ -10,6 +10,7 @@ export const TodoList = ({ todos}) => {
                     <TOdoItem
                         key={todo.id}
                         todo={todo}
+                        handleDeleteTodo={handleDeleteTodo}
                     />
                 ))
             }
