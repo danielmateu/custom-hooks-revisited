@@ -1,8 +1,7 @@
-import React, { useEffect, useReducer } from 'react'
+
 import { useTodo } from '../hooks/useTodo'
 import { TodoAdd } from './TodoAdd'
 import { TodoList } from './TodoList'
-import { todoReducer } from './todoReducer'
 
 const initialState = []
 
@@ -12,12 +11,12 @@ const init = () => {
 
 export const TOdoApp = () => {
 
-    const {todos,handleNewTodo,handleDeleteTodo,handleToggle} = useTodo(initialState,init)
-
+    const { todos, todosCount, pendingTodosCount, handleNewTodo, handleDeleteTodo, handleToggle } = useTodo(initialState, init)
+    // todos.filter(todo => !todo.done).length
     return (
         <>
             <div className="d-flex">
-                <h1>TodoApp {todos.length}, <small>pendientes: {todos.filter(todo => !todo.done).length}</small></h1>
+                <h1>TodoApp {todosCount}, <small>pendientes: {pendingTodosCount}</small></h1>
             </div>
             <hr />
             <div className="row">
