@@ -1,15 +1,10 @@
 import React, { useEffect, useReducer } from 'react'
+import { useTodo } from '../hooks/useTodo'
 import { TodoAdd } from './TodoAdd'
 import { TodoList } from './TodoList'
 import { todoReducer } from './todoReducer'
 
-const initialState = [
-    // {
-    //     id: new Date().getTime(),
-    //     description: 'Aprender React',
-    //     done: false
-    // },
-]
+const initialState = []
 
 const init = () => {
     return JSON.parse(localStorage.getItem('todos')) || []
@@ -17,35 +12,7 @@ const init = () => {
 
 export const TOdoApp = () => {
 
-    const [todos, dispatch] = useReducer(todoReducer, initialState, init)
-    // add to Localstorage
-    useEffect(() => {
-        localStorage.setItem('todos', JSON.stringify(todos))
-    }, [todos])
-
-
-    const handleNewTodo = (todo) => {
-        dispatch({
-            type: 'add',
-            payload: todo
-        })
-    }
-
-    // Delete todo
-    const handleDeleteTodo = (id) => {
-        dispatch({
-            type: 'delete',
-            payload: id
-        })
-    }
-
-    // Toggle todo
-    const handleToggle = (id) => {
-        dispatch({
-            type: 'toggle',
-            payload: id
-        })
-    }
+    const {todos,handleNewTodo,handleDeleteTodo,handleToggle} = useTodo(initialState,init)
 
     return (
         <>
@@ -55,7 +22,6 @@ export const TOdoApp = () => {
             <hr />
             <div className="row">
                 <div className="col-7">
-                    {/* TodoList */}
                     <TodoList
                         todos={todos}
                         handleDeleteTodo={handleDeleteTodo}
