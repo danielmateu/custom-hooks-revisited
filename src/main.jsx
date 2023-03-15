@@ -13,8 +13,7 @@ import { Memorize } from './06-memos/Memorize'
 import { Padre } from './07-tarea-memo/Padre'
 import { HooksApp } from './HooksApp'
 import './index.css'
-
-import './08-useReducer/intro-reducer'
+// import './08-useReducer/intro-reducer'
 import { TOdoApp } from './08-useReducer/TOdoApp'
 
 ReactDOM.createRoot(document.getElementById('root')).render(
