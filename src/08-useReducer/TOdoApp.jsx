@@ -39,6 +39,14 @@ export const TOdoApp = () => {
         })
     }
 
+    // Toggle todo
+    const handleToggle = (id) => {
+        dispatch({
+            type: 'toggle',
+            payload: id
+        })
+    }
+
     return (
         <>
             <div className="d-flex">
@@ -51,6 +59,7 @@ export const TOdoApp = () => {
                     <TodoList
                         todos={todos}
                         handleDeleteTodo={handleDeleteTodo}
+                        handleToggle={handleToggle}
                     />
 
                 </div>
