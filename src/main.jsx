@@ -15,6 +15,9 @@ import { HooksApp } from './HooksApp'
 import './index.css'
 // import './08-useReducer/intro-reducer'
 import { TOdoApp } from './08-useReducer/TOdoApp'
+import { MainApp } from './09-useContext/MainApp'
+import { BrowserRouter } from 'react-router-dom'
+
 
 ReactDOM.createRoot(document.getElementById('root')).render(
 
@@ -30,6 +33,10 @@ ReactDOM.createRoot(document.getElementById('root')).render(
     // <MemoHook/>
     // <CallbackHook/>
     // <Padre/>
-    <TOdoApp/>
+    // <TOdoApp/>
+    <BrowserRouter>
+        <MainApp />
+    </BrowserRouter>
+
 
 )
