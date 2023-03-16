@@ -1,7 +1,17 @@
 
+
+import { useContext } from 'react'
 import { Link, NavLink } from 'react-router-dom'
+import UserContext from './context/USerProvider'
+
+
+
 
 export const Navbar = () => {
+
+    const {user} = useContext(UserContext)
+
+
     return (
         <nav className="navbar navbar-expand-lg navbar-dark bg-dark rounded-3">
             <div className="container-fluid">
@@ -18,19 +28,19 @@ export const Navbar = () => {
 
                         <NavLink
                             to={'/about'}
-                            className = {({ isActive }) => (isActive ? 'nav-link active' : 'nav-link')}
+                            className={({ isActive }) => (isActive ? 'nav-link active' : 'nav-link')}
                         >
                             about us
                         </NavLink>ç
 
                         <NavLink
                             to={'/login'}
-                            className = {({ isActive }) => (isActive ? 'nav-link active' : 'nav-link')}
+                            className={({ isActive }) => (isActive ? 'nav-link active' : 'nav-link')}
                         >
                             login
                         </NavLink>
-
                     </ul>
+                        <span className="nav-link text-info">{user?.name}</span>
                 </div>
             </div>
         </nav>
