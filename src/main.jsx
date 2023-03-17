@@ -34,10 +34,10 @@ ReactDOM.createRoot(document.getElementById('root')).render(
     // <MemoHook/>
     // <CallbackHook/>
     // <Padre/>
-    <TOdoApp/>
-    // <BrowserRouter>
-    //     <MainApp />
-    // </BrowserRouter>
+    // <TOdoApp/>
+    <BrowserRouter>
+        <MainApp />
+    </BrowserRouter>
 
 
 )
