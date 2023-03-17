@@ -12,8 +12,32 @@ describe('Pruebas sobre HomePage', () => {
             </UserContext.Provider>
 
         )
-        screen.debug()
 
+        const preTag = screen.getByLabelText('pre')
+        expect(preTag.innerHTML).toBe('null')
+        // screen.debug()
+    })
 
+    test('Debe mostrar el componente con el usuario', () => {
+            
+            const user = {
+                name: 'dani',
+                email: '',
+                id: 123
+            }
+
+            render(
+                <UserContext.Provider
+                    value={{user}}>
+                    <HomePage />
+                </UserContext.Provider>
+
+            )
+
+            const preTag = screen.getByLabelText('pre')
+            expect(preTag.innerHTML).toContain(user.name);
+            expect(preTag.innerHTML).toContain(user.email);
+            expect(preTag.innerHTML).toContain(`${user.id}`)
+            // screen.debug()
     })
 })
