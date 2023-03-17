@@ -7,12 +7,14 @@ import { useCounter, useFetch } from "../hooks";
 export const MultipleCustomHooks = () => {
 
     const { counter, increment, decrement, reset } = useCounter(1);
-    const { data, loading, error } = useFetch(`https://zelda.fanapis.com/api/games?limit=${counter}}`)
-    const juegos = data.data;
+    const { data, loading, error } = useFetch(`https://pokeapi.co/api/v2/pokemon`)
+    const pokemons = data.results;
+    console.log(pokemons);
+    
 
     return (
         <>
-            <h1 className='text-center'>The Legend Of Zelda</h1>
+            <h1 className='text-center'>The Legend Of Pokemons</h1>
             <hr />
 
             <button
@@ -36,8 +38,8 @@ export const MultipleCustomHooks = () => {
 
             {data && <TItle data = {data}/>}
 
-            {juegos && juegos.map(juego => (
-                <Juego key={juego.id} juego={juego} />
+            {pokemons && pokemons.map(pokemon => (
+                <Juego key={pokemon.url} juego={pokemon} />
             ))}
 
             {loading && <Loading loading={loading} />}
